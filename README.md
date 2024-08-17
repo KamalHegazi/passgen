@@ -13,22 +13,28 @@ git clone https://github.com/KamalHegazi/passgen.git
 cd passgen
 ```
 # Usage
-**Basic usage :**
-```
-python passgen.py
-```
-**Example output :**
-```
-KR^.*l*$g?F]3v*)
-```
-**Save output to file :**
-```
-python passgen.py --length 32> myPass.txt
-```
+<br>
+
 | Command | Description |
 | --- | --- |
 | `-h / --help` | Show help menu |
 | `-l / --lenght` | Define length Of the Passphrase (16 by Default) |
+
+<br>
+
+**- Basic usage :**
+```
+python passgen.py
+```
+**- Example output :**
+```
+KR^.*l*$g?F]3v*)
+```
+**- Save output to file :**
+```
+python passgen.py --length 32> myPass.txt
+```
+
 
 ## Contributing
 
@@ -36,8 +42,6 @@ Contributions are welcome! Please open an issue or submit a pull request.
 
 ## License
 
-This project is licensed under the MIT License. See the LICENSE file for details.
 
-## Acknowledgements
-
-Inspired by various password generator scripts and tutorials available online.
+> [!NOTE]
+> **This project is licensed under the MIT License. See the LICENSE file for details.**
