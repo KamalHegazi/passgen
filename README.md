@@ -32,7 +32,7 @@ KR^.*l*$g?F]3v*)
 ```
 **- Save output to file :**
 ```
-python passgen.py --length 32> myPass.txt
+python passgen.py --length 32 > myPass.txt
 ```
 
 
