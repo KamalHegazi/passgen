@@ -1,5 +1,5 @@
 # 🔐 Passgen
-Welcome to the Secure Password Generator! This tool helps you create strong, random passwords to enhance your security. It’s built with Python and leverages the secrets module for cryptographic randomness.
+Welcome! This tool helps you create strong, random passwords to enhance your security. It’s built with Python and leverages the secrets module for cryptographic randomness.
 
 # 🚀 Features
 **Customizable Length:** Define the length of your password.
