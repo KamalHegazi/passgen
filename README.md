@@ -42,7 +42,7 @@ python generate_password.py --length 20 --no-upper --no-digits
 ```
 
 # 📜 License
-This project is licensed under the MIT License. See the LICENSE file for details.
+This project is licensed under the GNU General Public License v2.0 License. See the LICENSE file for details.
 
 # 🤝 Contributing
 Contributions are welcome! Please fork the repository and submit a pull request.
