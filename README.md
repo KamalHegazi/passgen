@@ -1,47 +1,51 @@
-# passgen
-CLI tool that generates secure, random passphrases. It allows users to specify the desired length of the password, ensuring it meets various security requirements. The script uses Python’s built-in libraries to create a mix of uppercase and lowercase letters, digits, and special characters.
+# 🔐 Passgen
+Welcome to the Secure Password Generator! This tool helps you create strong, random passwords to enhance your security. It’s built with Python and leverages the secrets module for cryptographic randomness.
 
-# Installation
+# 🚀 Features
+**Customizable Length:** Define the length of your password.
 
-**1. Clone the repository :** 
-```
-git clone https://github.com/KamalHegazi/passgen.git
-```
+**Character Sets:** Choose to include/exclude uppercase letters, lowercase letters, digits, and symbols.
 
-**2. Navigate to the project directory :**
-```
-cd passgen
-```
-# Usage
-<br>
+**Secure:** Uses the secrets module for generating cryptographically secure passwords.
 
-| Command | Description |
-| --- | --- |
-| `-h / --help` | Show help menu |
-| `-l / --lenght` | Define length Of the Passphrase (16 by Default) |
+**Logging:** Provides informative logging to track the password generation process.
 
-<br>
+# 🛠️ Installation
+Clone the repository and navigate to the project directory:
 
-**- Basic usage :**
 ```
-python passgen.py
-```
-**- Example output :**
-```
-KR^.*l*$g?F]3v*)
-```
-**- Save output to file :**
-```
-python passgen.py --length 32 > myPass.txt
+git clone https://github.com/yourusername/secure-password-generator.git
+cd secure-password-generator
 ```
 
 
-## Contributing
+# 📦 Usage
+Run the script with the desired options:
 
-Contributions are welcome! Please open an issue or submit a pull request.
+**Command-Line Options**
 
-## License
+`--length`, `-l`: Define the length of the passphrase (default is 16).
 
+`--no-upper`: Exclude uppercase letters from the passphrase.
 
-> [!NOTE]
-> **This project is licensed under the MIT License. See the LICENSE file for details.**
+`--no-lower`: Exclude lowercase letters from the passphrase.
+
+`--no-digits`: Exclude digits from the passphrase.
+
+`--no-symbols`: Exclude symbols from the passphrase.
+
+# 🧩 Example
+Generate a 20-character password without uppercase letters and digits:
+
+```
+python generate_password.py --length 20 --no-upper --no-digits
+```
+
+# 📜 License
+This project is licensed under the MIT License. See the LICENSE file for details.
+
+# 🤝 Contributing
+Contributions are welcome! Please fork the repository and submit a pull request.
+
+# 📧 Contact
+For any inquiries, please contact : `kamalhegazi05@gmail.com`
