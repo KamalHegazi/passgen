@@ -2,15 +2,15 @@
 Welcome! This tool helps you create strong, random passwords to enhance your security. It’s built with Python and leverages the secrets module for cryptographic randomness.
 
 # 🚀 Features
-- **Customizable Length:** Define the length of your password.
+1- **Customizable Length:** Define the length of your password.
 
-- **Character Sets:** Choose to include/exclude uppercase letters, lowercase letters, digits, and symbols.
+2- **Character Sets:** Choose to include/exclude uppercase letters, lowercase letters, digits, and symbols.
 
-- **Secure:** Uses the secrets module for generating cryptographically secure passwords.
+3- **Secure:** Uses the secrets module for generating cryptographically secure passwords.
 
-- **Logging:** Provides informative logging to track the password generation process.
+4- **Logging:** Provides informative logging to track the password generation process.
 
-- **Output the generated password to a file**
+5- **Output the generated password to a file**
 
 # 🛠️ Installation
 - Clone the repository and navigate to the project directory:
