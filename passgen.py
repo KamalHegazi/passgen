@@ -60,7 +60,7 @@ def log_message(level: str, message: str) -> None:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description='Welcome! This tool helps you create strong, random passwords to enhance your security.')
-    parser.add_argument('--length', type=int, default=16, dest='length',
+    parser.add_argument('--length', '-l', type=int, default=16, dest='length',
                         help="Define the length of the passphrase (16 by default)")
     parser.add_argument('--no-upper', action='store_false', dest='use_upper',
                         help="Exclude uppercase letters from the passphrase")
