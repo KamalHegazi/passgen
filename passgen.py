@@ -1,6 +1,6 @@
 import argparse
 import secrets
-import logging
+from datetime import datetime
 
 # Define character sets
 CHAR_SETS = {
@@ -35,26 +35,32 @@ def generate_pass(length: int, use_upper: bool, use_lower: bool, use_digits: boo
         raise ValueError("Error: At least one character set must be selected.")
     
     # Ensure at least one character from each selected set is included
-    password = [secrets.choice(chars) for _ in range(length)]
+    password = []
     if use_upper:
-        password[0] = secrets.choice(CHAR_SETS['upper'])
+        password.append(secrets.choice(CHAR_SETS['upper']))
     if use_lower:
-        password[1] = secrets.choice(CHAR_SETS['lower'])
+        password.append(secrets.choice(CHAR_SETS['lower']))
     if use_digits:
-        password[2] = secrets.choice(CHAR_SETS['digits'])
+        password.append(secrets.choice(CHAR_SETS['digits']))
     if use_symbols:
-        password[3] = secrets.choice(CHAR_SETS['symbols'])
+        password.append(secrets.choice(CHAR_SETS['symbols']))
+    
+    # Fill the rest of the password length with random choices
+    while len(password) < length:
+        password.append(secrets.choice(chars))
     
     # Shuffle the password list to ensure randomness
     secrets.SystemRandom().shuffle(password)
     
     return ''.join(password)
 
+def log_message(level: str, message: str) -> None:
+    timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    print(f"{timestamp} - {level} - {message}")
+
 def main() -> None:
-    logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
-    
-    parser = argparse.ArgumentParser(description='Passphrase generator tool')
-    parser.add_argument('--length', '-l', type=int, default=16,
+    parser = argparse.ArgumentParser(description='Welcome! This tool helps you create strong, random passwords to enhance your security.')
+    parser.add_argument('--length', type=int, default=16, dest='length',
                         help="Define the length of the passphrase (16 by default)")
     parser.add_argument('--no-upper', action='store_false', dest='use_upper',
                         help="Exclude uppercase letters from the passphrase")
@@ -64,19 +70,27 @@ def main() -> None:
                         help="Exclude digits from the passphrase")
     parser.add_argument('--no-symbols', action='store_false', dest='use_symbols',
                         help="Exclude symbols from the passphrase")
+    parser.add_argument('--output', '-o', type=str,
+                        help="Output the generated password to a text file")
     
     args = parser.parse_args()
     length = args.length
     
     if length <= 0:
-        logging.error("Error: Length must be a positive integer.")
+        log_message("ERROR", "Error: Length must be a positive integer.")
         return
     
     try:
         password = generate_pass(length, args.use_upper, args.use_lower, args.use_digits, args.use_symbols)
-        logging.info(f"Generated password: {password}")
+        log_message("INFO", f"Generated password: {password}")
+
+        if args.output:
+            with open(args.output, 'a') as file:
+                timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+                file.write(f"{timestamp} - {password}\n")
+            log_message("INFO", f"Password written to {args.output}")
     except ValueError as e:
-        logging.error(e)
+        log_message("ERROR", str(e))
 
 if __name__ == "__main__":
     main()
