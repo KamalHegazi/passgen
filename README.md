@@ -13,14 +13,14 @@ Welcome! This tool helps you create strong, random passwords to enhance your sec
 - **Output the generated password to a file**
 
 # 🛠️ Installation
-Clone the repository and navigate to the project directory:
+- Clone the repository and navigate to the project directory:
 
 ```sh
 git clone https://github.com/yourusername/secure-password-generator.git
 cd secure-password-generator
 ```
 
-Setup the tool by running the `setup.sh` as following:
+- Setup the tool by running the `setup.sh` as following:
 ```sh
 chmod +x setup.sh & sudo ./setup.sh
 ```
