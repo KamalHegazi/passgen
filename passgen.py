@@ -94,8 +94,6 @@ def main() -> None:
     args = parser.parse_args()
     length = args.length
 
-    
-
     if length <= 0:
         log_message("ERROR", "Error: Length must be a positive integer.")
 
