@@ -1,4 +1,7 @@
 # 🔐 Passgen
+![GitHub License](https://img.shields.io/github/license/KamalHegazi/passgen)
+![Static Badge](https://img.shields.io/badge/%203.12.5-ui?label=python&labelColor=gery&color=blue)
+
 Welcome! This tool helps you create strong, random passwords to enhance your security. It’s built with Python and leverages the secrets module for cryptographic randomness.
 
 # 🚀 Features
@@ -22,11 +25,10 @@ git clone https://github.com/yourusername/secure-password-generator.git
 cd secure-password-generator
 ```
 
-- Setup the tool by running the `setup.sh` as following:
+- Setup the tool by running the `setup.sh` as following (Linux):
 ```sh
 chmod +x setup.sh & sudo ./setup.sh
 ```
-
 
 # 📦 Usage
 Run the script with the desired options:
@@ -47,8 +49,13 @@ Generate a 20-character password without uppercase letters and digits:
 passgen --length 20 --no-symbols --output passwords.txt
 ```
 
+For Windows:
+```sh
+python passgen.py --length 20 --no-symbols --output password.txt
+```
+
 # 📜 License
-This project is licensed under the GNU General Public License v2.0 License. See the LICENSE file for details.
+This project is licensed under the MIT License. See the LICENSE file for details.
 
 # 🤝 Contributing
 Contributions are welcome! Please fork the repository and submit a pull request.
