@@ -17,6 +17,8 @@ Welcome! This tool helps you create strong, random passwords to enhance your sec
 
 ```sh
 git clone https://github.com/yourusername/secure-password-generator.git
+```
+```sh
 cd secure-password-generator
 ```
 
