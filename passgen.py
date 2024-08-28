@@ -1,14 +1,17 @@
+from string import ascii_lowercase, ascii_uppercase, digits, punctuation
+from datetime import datetime
 import argparse
 import secrets
-from datetime import datetime
+
 
 # Define character sets
 CHAR_SETS = {
-    'upper': "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
-    'lower': "abcdefghijklmnopqrstuvwxyz",
-    'digits': "0123456789",
-    'symbols': "~`!@#$%^&*)}(]{[|/?><.,-_+=';:"
+    'upper': ascii_uppercase,
+    'lower': ascii_lowercase,
+    'digits': digits,
+    'symbols': punctuation
 }
+
 
 def generate_pass(length: int, use_upper: bool, use_lower: bool, use_digits: bool, use_symbols: bool) -> str:
     """
@@ -19,47 +22,62 @@ def generate_pass(length: int, use_upper: bool, use_lower: bool, use_digits: boo
     :param use_lower: Include lowercase letters.
     :param use_digits: Include digits.
     :param use_symbols: Include symbols.
+    :param output: Output the generated password to file.
     :return: Generated password.
     """
+
     chars = ''
+
     if use_upper:
         chars += CHAR_SETS['upper']
+
     if use_lower:
         chars += CHAR_SETS['lower']
+
     if use_digits:
         chars += CHAR_SETS['digits']
+
     if use_symbols:
         chars += CHAR_SETS['symbols']
-    
+
     if not chars:
         raise ValueError("Error: At least one character set must be selected.")
-    
+
+
     # Ensure at least one character from each selected set is included
     password = []
+
     if use_upper:
         password.append(secrets.choice(CHAR_SETS['upper']))
+
     if use_lower:
         password.append(secrets.choice(CHAR_SETS['lower']))
+
     if use_digits:
         password.append(secrets.choice(CHAR_SETS['digits']))
+
     if use_symbols:
         password.append(secrets.choice(CHAR_SETS['symbols']))
-    
+
+
     # Fill the rest of the password length with random choices
     while len(password) < length:
         password.append(secrets.choice(chars))
-    
+
     # Shuffle the password list to ensure randomness
     secrets.SystemRandom().shuffle(password)
     
     return ''.join(password)
 
+
 def log_message(level: str, message: str) -> None:
     timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
     print(f"{timestamp} - {level} - {message}")
 
+
 def main() -> None:
     parser = argparse.ArgumentParser(description='Welcome! This tool helps you create strong, random passwords to enhance your security.')
+    
     parser.add_argument('--length', '-l', type=int, default=16, dest='length',
                         help="Define the length of the passphrase (16 by default)")
     parser.add_argument('--no-upper', action='store_false', dest='use_upper',
@@ -72,14 +90,17 @@ def main() -> None:
                         help="Exclude symbols from the passphrase")
     parser.add_argument('--output', '-o', type=str,
                         help="Output the generated password to a text file")
-    
+
     args = parser.parse_args()
     length = args.length
+
     
+
     if length <= 0:
         log_message("ERROR", "Error: Length must be a positive integer.")
+
         return
-    
+
     try:
         password = generate_pass(length, args.use_upper, args.use_lower, args.use_digits, args.use_symbols)
         log_message("INFO", f"Generated password: {password}")
@@ -89,8 +110,11 @@ def main() -> None:
                 timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
                 file.write(f"{timestamp} - {password}\n")
             log_message("INFO", f"Password written to {args.output}")
+
     except ValueError as e:
         log_message("ERROR", str(e))
 
+
 if __name__ == "__main__":
+
     main()
