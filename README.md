@@ -1,4 +1,4 @@
-# 🔐 Passgen
+# 🔐 passgen
 ![GitHub License](https://img.shields.io/github/license/KamalHegazi/passgen)
 ![Static Badge](https://img.shields.io/badge/%203.12.5-ui?label=python&labelColor=gery&color=blue)
 
