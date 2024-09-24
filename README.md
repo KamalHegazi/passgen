@@ -1,5 +1,4 @@
 # 🔐 passgen
-![GitHub License](https://img.shields.io/github/license/KamalHegazi/passgen)
 ![Static Badge](https://img.shields.io/badge/%203.12.5-ui?label=python&labelColor=gery&color=blue)
 
 Welcome! This tool helps you create strong, random passwords to enhance your security. It’s built with Python and leverages the secrets module for cryptographic randomness.
